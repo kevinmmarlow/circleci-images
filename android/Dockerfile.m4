@@ -75,7 +75,8 @@ RUN sdkmanager \
   "emulator" \
   "extras;android;m2repository" \
   "extras;google;m2repository" \
-  "extras;google;google_play_services"
+  "extras;google;google_play_services" \
+  "extras;intel;Hardware_Accelerated_Execution_Manager"
 
 RUN sdkmanager \
   "build-tools;25.0.0" \
@@ -87,3 +88,6 @@ RUN sdkmanager \
   "build-tools;27.0.0"
 
 RUN sdkmanager "platforms;android-API_LEVEL"
+
+# Install HAXM
+RUN ${ANDROID_HOME}/extras/intel/Hardware_Accelerated_Execution_Manager/silent_install.sh
